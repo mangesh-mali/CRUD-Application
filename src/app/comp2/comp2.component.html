@@ -1,0 +1,32 @@
+<p>comp2 works!</p>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+    </tr>
+    <tr *ngFor="let i of user">
+        <td>{{i.id}}</td>
+        <td>{{i.first_name}}</td>
+        <td>{{i.last_name}}</td>
+        <td>{{i.email}}</td>
+        <td>
+            <button class="btn btn-warning" (click)="editUser(i)">Edit</button>&nbsp;
+            <button class="btn btn-danger" (click)="delUser(i)">Delete</button>
+        </td>
+    </tr>
+</table>
+
+<form action="" #frm="ngForm">
+    <label for="" class="form-label">Name</label>
+    <input type="text" id="" class="form-control" name="nm" #nm="ngModel" ngModel [(ngModel)]="namefromTS">
+
+    <label for="" class="form-label">Job</label>
+    <input type="text" name="job" id="" class="form-control" #job="ngModel" ngModel [(ngModel)]="jobfromTS">
+    <br>
+
+    <button type="submit" *ngIf="showSubmit" class="btn btn-info" (click)="onSub(frm)">Create User</button>
+    <button type="submit" *ngIf="showUpdatebtn" class="btn btn-warning" (click)="onUp(frm)">Update User</button>
+</form>
